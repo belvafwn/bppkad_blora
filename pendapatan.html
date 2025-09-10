@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendapatan - Realisasi APBD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Realisasi APBD</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Dashboard</a></li>
+                <li><a href="pendapatan.html" class="nav-link active">Pendapatan</a></li>
+                <li><a href="pembelanjaan.html" class="nav-link">Pembelanjaan</a></li>
+                <li><a href="pembiayaan.html" class="nav-link">Pembiayaan</a></li>
+                <li><a href="admin.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="header-section">
+            <h2>Data Pendapatan</h2>
+            <div class="filters">
+                <div class="year-filter">
+                    <label for="yearFilter">Tahun:</label>
+                    <select id="yearFilter">
+                        <option value="">Semua Tahun</option>
+                    </select>
+                </div>
+                <div class="chart-view-toggle">
+                    <label for="chartView">Tampilan:</label>
+                    <select id="chartView">
+                        <option value="top10">Top 10</option>
+                        <option value="all">Semua (Scrollable)</option>
+                        <option value="stacked">Stacked by Year</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-card">
+                <h3>Total Pendapatan</h3>
+                <div class="summary-value" id="totalPendapatanValue">Rp 0</div>
+                <div class="summary-count" id="totalPendapatanCount">0 item</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Grafik Pendapatan per Subkategori</h3>
+                <div class="chart-wrapper">
+                    <canvas id="pendapatanChart"></canvas>
+                </div>
+                <div class="chart-controls" id="chartControls">
+                    <button id="showAllBtn" class="btn btn-secondary" style="display: none;">Tampilkan Semua</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table-container">
+            <div class="table-card">
+                <h3>Detail Data Pendapatan</h3>
+                <div class="table-responsive">
+                    <table class="data-table" id="pendapatanTable">
+                        <thead>
+                            <tr>
+                                <th>Tahun</th>
+                                <th>Subkategori</th>
+                                <th>Uraian</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pendapatanTableBody">
+                            <tr>
+                                <td colspan="4" class="no-data">Belum ada data pendapatan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Realisasi APBD. Sistem Monitoring Anggaran.</p>
+        </div>
+    </footer>
+
+    <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize pendapatan page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCategoryPage('pendapatan');
+        });
+    </script>
+</body>
+</html>

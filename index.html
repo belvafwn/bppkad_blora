@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Realisasi APBD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Realisasi APBD</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="pendapatan.html" class="nav-link">Pendapatan</a></li>
+                <li><a href="pembelanjaan.html" class="nav-link">Pembelanjaan</a></li>
+                <li><a href="pembiayaan.html" class="nav-link">Pembiayaan</a></li>
+                <li><a href="admin.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="header-section">
+            <h2>Dashboard Ringkasan APBD</h2>
+            <div class="year-filter">
+                <label for="yearSelect">Tahun:</label>
+                <select id="yearSelect">
+                    <option value="">Semua Tahun</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="summary-cards" id="summaryCards">
+            <div class="card">
+                <h3>Total Pendapatan</h3>
+                <div class="card-value" id="totalPendapatan">Rp 0</div>
+                <div class="card-count" id="countPendapatan">0 item</div>
+            </div>
+            <div class="card">
+                <h3>Total Pembelanjaan</h3>
+                <div class="card-value" id="totalPembelanjaan">Rp 0</div>
+                <div class="card-count" id="countPembelanjaan">0 item</div>
+            </div>
+            <div class="card">
+                <h3>Total Pembiayaan</h3>
+                <div class="card-value" id="totalPembiayaan">Rp 0</div>
+                <div class="card-count" id="countPembiayaan">0 item</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Perbandingan Kategori</h3>
+                <div class="chart-wrapper">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Trend per Tahun</h3>
+                <div class="chart-wrapper">
+                    <canvas id="yearlyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Realisasi APBD. Sistem Monitoring Anggaran.</p>
+        </div>
+    </footer>
+
+    <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+        });
+    </script>
+</body>
+</html>
