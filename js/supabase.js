@@ -8,7 +8,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const { createClient } = supabase;
 
 // Initialize Supabase client
-const supabaseClient = createClient(SUPABASE_URL , SUPABASE_ANON_KEY;
+const supabaseClient = createClient(SUPABASE_URL , SUPABASE_ANON_KEY);
 
 // Database table name
 const TABLE_NAME = 'realisasi_apbd';
@@ -337,4 +337,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
